@@ -1,0 +1,371 @@
+:root {
+    --primary-color: #5B6DE7; /* A blueish-purple, like the "Biccas" logo color */
+    --accent-color: #6CDBA6; /* Green for signup button and highlights */
+    --text-color-dark: #2F2F2F;
+    --text-color-light: #666;
+    --background-light: #F8F8F8;
+    --background-gradient-start: #E0F2E9; /* Light green/blue from the image */
+    --background-gradient-end: #F7E5F9;   /* Light purple from the image */
+}
+
+/* Global Styles & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from gradients/pseudo-elements */
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-light);
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: transparent; /* Assuming hero section handles background */
+    position: relative;
+    z-index: 100; /* Ensure navbar is on top */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Inter', sans-serif; /* Use Inter for the logo text if that's the desired font */
+}
+
+.nav-links a {
+    margin: 0 1.2rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--text-color-dark);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-login {
+    color: var(--text-color-light);
+    font-weight: 500;
+}
+
+.btn-signup {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #5bc49c;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5% 5rem 5%;
+    min-height: calc(100vh - 100px); /* Adjust height based on navbar */
+    position: relative;
+    background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+    border-bottom-left-radius: 80px; /* Rounded bottom corners as in the image */
+    border-bottom-right-radius: 80px;
+    margin: 0 2%; /* Add some margin to show the background-light around it */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05); /* Subtle shadow for the section */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.hero-content h1 .highlight-text {
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block; /* Allows width for underline */
+}
+
+/* Underline effect for "Productivity" */
+.hero-content h1 .highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust vertical position */
+    left: 0;
+    width: 90%; /* Adjust width to match the word */
+    height: 6px; /* Thickness of the line */
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    opacity: 0.7; /* Make it slightly transparent */
+}
+
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-color-light);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-try-free {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-try-free:hover {
+    background-color: #5bc49c;
+}
+
+.btn-view-demo {
+    color: var(--text-color-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-view-demo .fas {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+/* Hero Illustration - this is complex and best handled as a single composite image */
+.hero-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 50%;
+    background-color: #5bc49c;
+    border-radius: 10px;
+    height: 550px; /* Fixed height to match the image's overall visual area */
+}
+
+.main-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the image fits within the container */
+    /* You'll need to create a single image file that includes the person, UI elements,
+       credit card, small icons, and the abstract green background shapes as one PNG. */
+}
+
+/* --- Company Logos Section --- */
+.company-logos-section {
+    padding: 5rem 5% 4rem 5%;
+    text-align: center;
+    background-color: var(--background-light);
+}
+
+.company-logos-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color-dark);
+    margin-bottom: 3rem;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow logos to wrap on smaller screens */
+    gap: 3rem;
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color-light);
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+}
+
+.logo-item .temp-logo {
+    width: 200px; /* Adjust size for the placeholder images */
+    height: 200px;
+    opacity: 0.7; /* Make them look subdued like the example */
+    object-fit: contain;
+}
+/* In a real scenario, you'd replace .temp-logo with actual SVG or image logos */
+
+
+/* --- Responsiveness --- */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .hero-illustration {
+        height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1.5rem 3%;
+    }
+    .nav-links {
+        display: none; /* Hide for smaller screens, usually replaced by a hamburger menu */
+    }
+    .auth-buttons {
+        gap: 0.8rem;
+    }
+    .btn-signup {
+        padding: 0.6rem 1.2rem;
+    }
+
+    .hero-section {
+        flex-direction: column; /* Stack content and illustration */
+        text-align: center;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+        min-height: auto;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        margin: 0 1%;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content h1 .highlight-text::after {
+        left: 50%; /* Center underline */
+        transform: translateX(-50%);
+    }
+
+    .hero-content p {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-actions {
+        justify-content: center;
+    }
+
+    .hero-illustration {
+        max-width: 90%;
+        height: 450px;
+    }
+
+    .company-logos-section {
+        padding: 3rem 3%;
+    }
+    .logos-container {
+        gap: 2rem;
+    }
+    .logo-item p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .btn-try-free {
+        padding: 0.8rem 2rem;
+    }
+    .btn-view-demo .fas {
+        font-size: 1.5rem;
+    }
+    .hero-illustration {
+        height: 350px;
+    }
+    .company-logos-section h2 {
+        font-size: 1.5rem;
+    }
+    .logos-container {
+        flex-direction: column; /* Stack logos vertically for very small screens */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+    .auth-buttons {
+        gap: 0.5rem;
+    }
+    .btn-login {
+        font-size: 0.9rem;
+    }
+    .btn-signup {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .hero-section {
+        margin: 0; /* Remove side margins on smallest screens */
+        border-radius: 0; /* No rounded corners on smallest screens */
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .cta-actions {
+        flex-direction: column; /* Stack CTA buttons */
+        gap: 1rem;
+    }
+    .btn-try-free, .btn-view-demo {
+        width: 80%; /* Make buttons wider */
+        justify-content: center;
+    }
+    .hero-illustration {
+        height: 300px;
+    }
+    .company-logos-section h2 {
+        font-size: 1.3rem;
+    }
+}
